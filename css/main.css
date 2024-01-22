@@ -233,7 +233,7 @@ section {
 .about {
   display: flex;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   justify-content: space-between;
   gap: 2%;
   /* background: #00abf0; */
@@ -287,8 +287,9 @@ section {
   width: 70%;
   height: 100%;
   /* border: 2px solid red; */
+  border: 0.2rem solid var(--main-color);
   border-radius: 0.8rem;
-  /* overflow: hidden; */
+  overflow: hidden;
   transition: 1s;
 }
 
@@ -296,12 +297,15 @@ section {
   box-shadow: 0 0 10px 1px var(--main-color);
   transition: 1s;
 }
+.about-row .about-column:nth-child(1) .about-box .about-content {
+  border-radius: 50%;
+}
 
 .about-content .about-image {
   position: relative;
   height: 100%;
   overflow: hidden;
-  border-radius: 0.8rem;
+  border-radius: 50%;
   background: url(../images/pexels-pixabay-258154.jpg);
   background-position: center;
   background-size: cover;
@@ -324,7 +328,7 @@ section {
 }
 
 .about-content .img {
-  margin-top: 30%;
+  margin-top: 10%;
   position: absolute;
   top: 0;
   left: 0;
