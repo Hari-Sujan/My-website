@@ -295,7 +295,7 @@ section {
 
 .about-box .about-content:hover {
   box-shadow: 0 0 10px 1px var(--main-color);
-  border: none;
+  border: hidden;
   transition: 1s;
 }
 .about-row .about-column:nth-child(1) .about-box .about-content {
