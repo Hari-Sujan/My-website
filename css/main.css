@@ -293,8 +293,9 @@ section {
   transition: 1s;
 }
 
-.about-content:hover {
+.about-box .about-content:hover {
   box-shadow: 0 0 10px 1px var(--main-color);
+  border: none;
   transition: 1s;
 }
 .about-row .about-column:nth-child(1) .about-box .about-content {
@@ -984,5 +985,11 @@ form .btn-box .btn {
   }
   .right-div p {
     font-size: 1rem;
+  }
+}
+
+@media (max-height: 500px) {
+  .home-sic {
+    bottom: 2rem;
   }
 }
