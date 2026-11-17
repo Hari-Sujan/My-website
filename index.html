@@ -4,42 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hari Sujan | Frontend Developer & UI Specialist</title>
+    <meta name="description" content="Portfolio of Hari Sujan, a Senior Frontend Developer specializing in high-performance web applications, modern React/JS architectures, and pixel-perfect UI design." />
+    
+    <!-- Typography & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Boxicons -->
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
     <!-- CSS -->
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <!-- Background Ambient Glows -->
+    <!-- Background Dynamic Canvas & Ambient Glows -->
+    <canvas id="ambient-canvas"></canvas>
     <div class="ambient-glow glow-1"></div>
     <div class="ambient-glow glow-2"></div>
     <div class="ambient-glow glow-3"></div>
 
     <!-- Header Navigation -->
-    <header class="header">
-      <a href="#home" class="logo">
-        <span class="logo-accent"><</span>Hari<span class="logo-accent">/></span>
+    <header class="header" id="header">
+      <a href="#home" class="logo" aria-label="Hari Sujan Portfolio Home">
+        <span class="logo-text">Hari</span>
       </a>
 
-      <div class="bx bx-menu" id="menu-icon" aria-label="Toggle navigation"></div>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+        <i class="bx bx-menu" id="menu-icon"></i>
+      </button>
 
-      <nav class="navbar">
+      <nav class="navbar" id="navbar">
         <a href="#home" class="nav-link active">Home</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
-        <a href="#education" class="nav-link">Journey</a>
+        <a href="#journey" class="nav-link">Journey</a>
         <a href="#contact" class="nav-link">Contact</a>
-        <a href="#contact" class="nav-cta-btn">Hire Me</a>
+        <a href="#contact" class="nav-cta-btn">
+          <span>Hire Me</span>
+          <i class="bx bx-paper-plane"></i>
+        </a>
       </nav>
     </header>
 
@@ -47,28 +50,31 @@
     <section class="home" id="home">
       <div class="home-container">
         <div class="home-content">
-          <div class="status-badge">
+          <div class="status-badge" id="status-badge">
             <span class="status-dot"></span>
-            Available for new opportunities & freelance
+            <span class="status-text">Available for contracts &amp; full-time roles</span>
           </div>
-          <h1>
-            Hi, I'm <span class="gradient-text">Hari Sujan</span>
+
+          <h1 class="hero-title">
+            Crafting Digital Products with <span class="gradient-text">Precision &amp; Vision</span>
           </h1>
+
           <div class="text-animate">
-            <h3>I build <span id="typewriter" class="typewriter-text">modern web experiences</span></h3>
+            <h3>Building <span id="typewriter" class="typewriter-text">scalable frontend systems</span></h3>
           </div>
+
           <p class="hero-desc">
-            Passionate Frontend Developer focused on crafting pixel-perfect, accessible, and high-performance digital products with modern technologies.
+            Hi, I'm <strong>Hari Sujan</strong>. I specialize in building responsive, ultra-fast web applications with clean architecture, accessible components, and Stripe-level aesthetic polish.
           </p>
 
           <div class="btn-box">
             <a href="#projects" class="btn btn-primary">
-              <span>View Projects</span>
+              <span>Explore Projects</span>
               <i class="bx bx-right-arrow-alt"></i>
             </a>
             <a href="#contact" class="btn btn-secondary">
-              <span>Let's Talk</span>
-              <i class="bx bx-message-dots"></i>
+              <span>Let's Connect</span>
+              <i class="bx bx-chat"></i>
             </a>
           </div>
 
@@ -84,7 +90,7 @@
               <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">
                 <i class="bx bxl-github"></i>
               </a>
-              <a href="mailto:harisujan04@gmail.com" aria-label="Gmail">
+              <a href="mailto:harisujan04@gmail.com" aria-label="Email">
                 <i class="bx bxl-gmail"></i>
               </a>
             </div>
@@ -92,44 +98,71 @@
         </div>
 
         <div class="hero-visual">
+          <!-- Interactive Terminal Preview Card -->
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <span class="terminal-title">hari-sujan.config.ts</span>
+              <span class="terminal-badge">LIVE DEV</span>
+            </div>
+            <div class="terminal-body">
+              <pre><code><span class="code-keyword">const</span> <span class="code-var">developer</span> = {
+  <span class="code-prop">name</span>: <span class="code-str">'Hari Sujan'</span>,
+  <span class="code-prop">role</span>: <span class="code-str">'Frontend Engineer &amp; UI Specialist'</span>,
+  <span class="code-prop">location</span>: <span class="code-str">'Tamil Nadu, India'</span>,
+  <span class="code-prop">coreStack</span>: [<span class="code-str">'React'</span>, <span class="code-str">'TypeScript'</span>, <span class="code-str">'JavaScript'</span>, <span class="code-str">'CSS3/Sass'</span>],
+  <span class="code-prop">focus</span>: [<span class="code-str">'Design Systems'</span>, <span class="code-str">'Web Performance'</span>, <span class="code-str">'A11y'</span>],
+  <span class="code-prop">status</span>: <span class="code-str">'🚀 Ready to build exceptional web applications'</span>
+};
+
+<span class="code-comment">// Output Developer Readiness</span>
+<span class="code-func">console</span>.<span class="code-method">log</span>(<span class="code-str">`Status: ${developer.status}`</span>);</code></pre>
+            </div>
+          </div>
+
+          <!-- Hero Profile Snapshot Card -->
           <div class="hero-card-wrapper">
             <div class="hero-avatar-frame">
               <img
                 src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Hari Sujan - Frontend Developer"
+                alt="Hari Sujan - Frontend Engineer"
                 class="hero-img"
               />
               <div class="avatar-ring"></div>
             </div>
 
-            <!-- Floating tech pills -->
+            <!-- Floating Pill Badges -->
             <div class="floating-badge badge-react">
               <i class="bx bxl-react"></i>
-              <span>React Dev</span>
+              <span>React Architect</span>
             </div>
             <div class="floating-badge badge-code">
-              <i class="bx bx-code-alt"></i>
+              <i class="bx bx-code-block"></i>
               <span>Clean Code</span>
             </div>
             <div class="floating-badge badge-speed">
-              <i class="bx bx-zap"></i>
-              <span>Fast UI</span>
+              <i class="bx bx-bolt-circle"></i>
+              <span>100 Core Web Vitals</span>
             </div>
           </div>
 
-          <!-- Quick Stats Row -->
+          <!-- Metrics Stat Grid -->
           <div class="hero-stats">
             <div class="stat-card">
-              <span class="stat-num">2+</span>
-              <span class="stat-text">Years Coding</span>
+              <span class="stat-num" data-count="2">2+</span>
+              <span class="stat-text">Years Exp.</span>
             </div>
             <div class="stat-card">
-              <span class="stat-num">12+</span>
+              <span class="stat-num" data-count="12">12+</span>
               <span class="stat-text">Projects Built</span>
             </div>
             <div class="stat-card">
               <span class="stat-num">100%</span>
-              <span class="stat-text">Commitment</span>
+              <span class="stat-text">Client Satisfaction</span>
             </div>
           </div>
         </div>
@@ -139,8 +172,8 @@
     <!-- About Section -->
     <section class="about" id="about">
       <div class="section-header">
-        <span class="section-tag">Get to know me</span>
-        <h2 class="heading">About <span class="gradient-text">Me</span></h2>
+        <span class="section-tag">About Me</span>
+        <h2 class="heading">Passionate About Crafting <span class="gradient-text">Exceptional UI</span></h2>
       </div>
 
       <div class="about-row">
@@ -149,13 +182,13 @@
             <div class="about-image-wrapper">
               <img
                 src="https://images.pexels.com/photos/4974915/pexels-photo-4974915.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Workspace and development"
+                alt="Development Workspace"
                 class="about-img"
               />
               <div class="about-image-overlay">
                 <div class="overlay-content">
-                  <i class="bx bx-terminal"></i>
-                  <span>Crafting interactive web applications</span>
+                  <i class="bx bx-laptop"></i>
+                  <span>Bridging Figma Designs &amp; Production Code</span>
                 </div>
               </div>
             </div>
@@ -165,10 +198,10 @@
         <div class="about-column about-info-column">
           <div class="about-details-card">
             <h3 class="about-intro-title">
-              Hi there! I build high-performing websites that look stunning and convert.
+              Engineering web interfaces that feel alive, intuitive, and performant.
             </h3>
             <p class="about-intro-text">
-              I am a frontend developer with an eye for refined details, clean architecture, and responsive user interfaces. I love transforming creative concepts into engaging real-world digital experiences.
+              I am a Frontend Developer with a diploma in Computer Science Engineering and hands-on expertise in mobile device hardware &amp; software troubleshooting. This unique background allows me to understand software execution down to the hardware level, resulting in ultra-optimized web builds.
             </p>
 
             <div class="info-grid">
@@ -181,10 +214,10 @@
               </div>
 
               <div class="info-item">
-                <div class="info-icon"><i class="bx bx-code-curly"></i></div>
+                <div class="info-icon"><i class="bx bx-code-alt"></i></div>
                 <div>
-                  <span class="info-label">Role</span>
-                  <p class="info-val">Frontend Developer</p>
+                  <span class="info-label">Specialization</span>
+                  <p class="info-val">React &amp; Modern Web UI</p>
                 </div>
               </div>
 
@@ -205,17 +238,17 @@
               </div>
 
               <div class="info-item">
-                <div class="info-icon"><i class="bx bx-map-pin"></i></div>
+                <div class="info-icon"><i class="bx bx-map"></i></div>
                 <div>
                   <span class="info-label">Location</span>
-                  <p class="info-val">Tirunelveli, Tamil Nadu, India</p>
+                  <p class="info-val">Tamil Nadu, India</p>
                 </div>
               </div>
 
               <div class="info-item">
-                <div class="info-icon"><i class="bx bx-check-circle"></i></div>
+                <div class="info-icon"><i class="bx bx-check-shield"></i></div>
                 <div>
-                  <span class="info-label">Status</span>
+                  <span class="info-label">Availability</span>
                   <p class="info-val text-success">Open for Work</p>
                 </div>
               </div>
@@ -227,8 +260,8 @@
                 <i class="bx bx-send"></i>
               </a>
               <a href="#skills" class="btn btn-outline">
-                <span>Explore Skills</span>
-                <i class="bx bx-down-arrow-alt"></i>
+                <span>View Tech Stack</span>
+                <i class="bx bx-layer"></i>
               </a>
             </div>
           </div>
@@ -236,29 +269,29 @@
       </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Technical Skills Section -->
     <section class="skills" id="skills">
       <div class="section-header">
-        <span class="section-tag">Tech Stack & Tools</span>
-        <h2 class="heading">Technical <span class="gradient-text">Skills</span></h2>
+        <span class="section-tag">Capabilities</span>
+        <h2 class="heading">Technical <span class="gradient-text">Proficiency</span></h2>
       </div>
 
       <div class="skills-grid">
         <div class="skill-category-card">
           <div class="category-header">
             <div class="category-icon icon-code">
-              <i class="bx bx-code-alt"></i>
+              <i class="bx bx-code-curly"></i>
             </div>
             <div>
-              <h3>Frontend Core</h3>
-              <p>Primary languages & core foundations</p>
+              <h3>Core Frontend</h3>
+              <p>Standards-compliant web foundations</p>
             </div>
           </div>
 
           <div class="skills-content">
             <div class="progress">
               <div class="progress-info">
-                <span><i class="bx bxl-html5 skill-ico"></i> HTML5 Semantic Web</span>
+                <span><i class="bx bxl-html5 skill-ico"></i> HTML5 &amp; Semantic Web</span>
                 <span class="percent">95%</span>
               </div>
               <div class="bar"><span style="width: 95%;"></span></div>
@@ -266,7 +299,7 @@
 
             <div class="progress">
               <div class="progress-info">
-                <span><i class="bx bxl-css3 skill-ico"></i> CSS3 & Responsive Layouts</span>
+                <span><i class="bx bxl-css3 skill-ico"></i> CSS3, SCSS &amp; Responsive Grid</span>
                 <span class="percent">92%</span>
               </div>
               <div class="bar"><span style="width: 92%;"></span></div>
@@ -274,10 +307,10 @@
 
             <div class="progress">
               <div class="progress-info">
-                <span><i class="bx bxl-javascript skill-ico"></i> Modern JavaScript (ES6+)</span>
-                <span class="percent">88%</span>
+                <span><i class="bx bxl-javascript skill-ico"></i> ES6+ Modern JavaScript</span>
+                <span class="percent">90%</span>
               </div>
-              <div class="bar"><span style="width: 88%;"></span></div>
+              <div class="bar"><span style="width: 90%;"></span></div>
             </div>
           </div>
         </div>
@@ -288,15 +321,15 @@
               <i class="bx bxl-react"></i>
             </div>
             <div>
-              <h3>Frameworks & Styling</h3>
-              <p>Libraries, state management & UI kits</p>
+              <h3>Frameworks &amp; Styling</h3>
+              <p>Modern UI architectures &amp; components</p>
             </div>
           </div>
 
           <div class="skills-content">
             <div class="progress">
               <div class="progress-info">
-                <span><i class="bx bxl-react skill-ico"></i> React.js</span>
+                <span><i class="bx bxl-react skill-ico"></i> React.js Development</span>
                 <span class="percent">92%</span>
               </div>
               <div class="bar"><span style="width: 92%;"></span></div>
@@ -304,72 +337,86 @@
 
             <div class="progress">
               <div class="progress-info">
-                <span><i class="bx bxl-sass skill-ico"></i> Sass / SCSS Preprocessors</span>
-                <span class="percent">90%</span>
+                <span><i class="bx bxl-tailwind-css skill-ico"></i> Tailwind CSS &amp; UI Libraries</span>
+                <span class="percent">88%</span>
               </div>
-              <div class="bar"><span style="width: 90%;"></span></div>
+              <div class="bar"><span style="width: 88%;"></span></div>
             </div>
 
             <div class="progress">
               <div class="progress-info">
-                <span><i class="bx bxl-bootstrap skill-ico"></i> Bootstrap & Tailwind</span>
-                <span class="percent">85%</span>
+                <span><i class="bx bx-cog skill-ico"></i> REST APIs &amp; State Logic</span>
+                <span class="percent">86%</span>
               </div>
-              <div class="bar"><span style="width: 85%;"></span></div>
+              <div class="bar"><span style="width: 86%;"></span></div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="tech-badges-wrapper">
-        <h4 class="badges-title">Additional Capabilities & Workflow</h4>
+        <h4 class="badges-title">Workflow, Tools &amp; Technical Knowledge</h4>
         <div class="tech-pills">
-          <span class="tech-pill"><i class="bx bxl-git"></i> Git & GitHub</span>
-          <span class="tech-pill"><i class="bx bx-devices"></i> Responsive Design</span>
-          <span class="tech-pill"><i class="bx bx-slider-alt"></i> REST APIs & JSON</span>
-          <span class="tech-pill"><i class="bx bx-palette"></i> Figma to Code</span>
-          <span class="tech-pill"><i class="bx bx-wrench"></i> Hardware Diagnostics</span>
-          <span class="tech-pill"><i class="bx bx-check-shield"></i> Cross-Browser Testing</span>
+          <span class="tech-pill"><i class="bx bxl-git"></i> Git &amp; GitHub</span>
+          <span class="tech-pill"><i class="bx bx-mobile-alt"></i> Mobile Responsive Design</span>
+          <span class="tech-pill"><i class="bx bx-palette"></i> Figma to Pixel-Perfect Code</span>
+          <span class="tech-pill"><i class="bx bx-analyse"></i> Web Vitals Optimization</span>
+          <span class="tech-pill"><i class="bx bx-wrench"></i> Mobile Hardware &amp; Chip Servicing</span>
+          <span class="tech-pill"><i class="bx bx-check-double"></i> Cross-Browser Testing</span>
         </div>
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Showcase Section -->
     <section class="projects" id="projects">
       <div class="section-header">
-        <span class="section-tag">Featured Work</span>
+        <span class="section-tag">Portfolio Showcase</span>
         <h2 class="heading">Featured <span class="gradient-text">Projects</span></h2>
       </div>
 
-      <div class="projects-grid">
-        <div class="project-card">
+      <!-- Project Category Filters -->
+      <div class="project-filter-tabs">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="react">React Apps</button>
+        <button class="filter-btn" data-filter="ui">UI/UX Showcase</button>
+        <button class="filter-btn" data-filter="tooling">Hardware &amp; Tools</button>
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card" data-category="react" data-project-id="project-1">
           <div class="project-img-wrapper">
             <img
               src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="E-Commerce Storefront"
+              alt="Interactive Web App Dashboard"
               class="project-img"
             />
             <div class="project-overlay">
               <div class="project-links">
-                <a href="#contact" class="project-link-btn" title="View Details"><i class="bx bx-link-external"></i></a>
-                <a href="https://github.com" target="_blank" rel="noopener" class="project-link-btn" title="Source Code"><i class="bx bxl-github"></i></a>
+                <button class="project-link-btn view-modal-btn" title="View Full Details">
+                  <i class="bx bx-expand-alt"></i>
+                </button>
+                <a href="https://github.com" target="_blank" rel="noopener" class="project-link-btn" title="View Source Code">
+                  <i class="bx bxl-github"></i>
+                </a>
               </div>
             </div>
           </div>
           <div class="project-body">
             <div class="project-tags">
-              <span class="project-tag">React</span>
-              <span class="project-tag">CSS3</span>
+              <span class="project-tag">React.js</span>
               <span class="project-tag">REST API</span>
+              <span class="project-tag">Chart.js</span>
             </div>
-            <h3 class="project-title">Interactive Web App & Dashboard</h3>
+            <h3 class="project-title">Analytics &amp; Operations Dashboard</h3>
             <p class="project-desc">
-              A responsive, state-driven dashboard application featuring real-time data visualisations, smooth transitions, and modular UI components.
+              Real-time analytics dashboard with dynamic dark theme, customizable charts, user activity logs, and responsive layout.
             </p>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
+        <!-- Project 2 -->
+        <article class="project-card" data-category="ui" data-project-id="project-2">
           <div class="project-img-wrapper">
             <img
               src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -378,61 +425,71 @@
             />
             <div class="project-overlay">
               <div class="project-links">
-                <a href="#contact" class="project-link-btn" title="View Details"><i class="bx bx-link-external"></i></a>
-                <a href="https://github.com" target="_blank" rel="noopener" class="project-link-btn" title="Source Code"><i class="bx bxl-github"></i></a>
+                <button class="project-link-btn view-modal-btn" title="View Full Details">
+                  <i class="bx bx-expand-alt"></i>
+                </button>
+                <a href="https://github.com" target="_blank" rel="noopener" class="project-link-btn" title="View Source Code">
+                  <i class="bx bxl-github"></i>
+                </a>
               </div>
             </div>
           </div>
           <div class="project-body">
             <div class="project-tags">
+              <span class="project-tag">Modern CSS</span>
               <span class="project-tag">JavaScript</span>
-              <span class="project-tag">Sass</span>
-              <span class="project-tag">UI/UX</span>
+              <span class="project-tag">Animations</span>
             </div>
-            <h3 class="project-title">Modern Agency Portfolio</h3>
+            <h3 class="project-title">Digital Agency Experience</h3>
             <p class="project-desc">
-              A high-conversion agency landing page with custom micro-interactions, dark mode aesthetics, and 100/100 Lighthouse performance metrics.
+              A high-conversion corporate web experience featuring custom fluid scroll micro-interactions and smooth page transitions.
             </p>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
+        <!-- Project 3 -->
+        <article class="project-card" data-category="tooling" data-project-id="project-3">
           <div class="project-img-wrapper">
             <img
               src="https://images.pexels.com/photos/5926382/pexels-photo-5926382.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Hardware & Device Service Hub"
+              alt="Hardware Service Portal"
               class="project-img"
             />
             <div class="project-overlay">
               <div class="project-links">
-                <a href="#contact" class="project-link-btn" title="View Details"><i class="bx bx-link-external"></i></a>
-                <a href="https://github.com" target="_blank" rel="noopener" class="project-link-btn" title="Source Code"><i class="bx bxl-github"></i></a>
+                <button class="project-link-btn view-modal-btn" title="View Full Details">
+                  <i class="bx bx-expand-alt"></i>
+                </button>
+                <a href="https://github.com" target="_blank" rel="noopener" class="project-link-btn" title="View Source Code">
+                  <i class="bx bxl-github"></i>
+                </a>
               </div>
             </div>
           </div>
           <div class="project-body">
             <div class="project-tags">
-              <span class="project-tag">Frontend</span>
-              <span class="project-tag">Bootstrap</span>
               <span class="project-tag">Service Portal</span>
+              <span class="project-tag">Hardware UI</span>
+              <span class="project-tag">Forms</span>
             </div>
-            <h3 class="project-title">Device Repair Booking Portal</h3>
+            <h3 class="project-title">Device Diagnostic Service Hub</h3>
             <p class="project-desc">
-              Customer portal designed for booking diagnostic requests and tracking repair status for mobile and hardware devices seamlessly.
+              Client scheduling portal for hardware repairs with real-time status tracking and automated request routing.
             </p>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
-    <!-- Education & Journey Section -->
-    <section class="education" id="education">
+    <!-- Education & Career Journey Section -->
+    <section class="journey" id="journey">
       <div class="section-header">
-        <span class="section-tag">Background & Experience</span>
-        <h2 class="heading">My <span class="gradient-text">Journey</span></h2>
+        <span class="section-tag">Background</span>
+        <h2 class="heading">Education &amp; <span class="gradient-text">Journey</span></h2>
       </div>
 
       <div class="education-row">
+        <!-- Education Column -->
         <div class="education-column">
           <div class="column-header">
             <i class="bx bxs-graduation"></i>
@@ -444,10 +501,10 @@
                 <div class="year">
                   <i class="bx bxs-calendar"></i> May 2022 - Dec 2022
                 </div>
-                <h3>Mobile Phone Servicing</h3>
+                <h3>Mobile Phone Servicing &amp; Hardware Diagnostics</h3>
                 <p class="institution">Alpha Institution, Nagercoil</p>
                 <p class="desc">
-                  Hands-on diagnostics, chip-level troubleshooting, device repair, and hardware-software integration.
+                  Advanced certification in chip-level diagnostics, circuit testing, device hardware repairing, and firmware flashing.
                 </p>
               </div>
             </div>
@@ -460,7 +517,7 @@
                 <h3>Diploma in Computer Science Engineering</h3>
                 <p class="institution">Government Polytechnic College, Srirangam, Trichy</p>
                 <p class="desc">
-                  Core fundamentals of algorithms, operating systems, web technologies, software development, and database architecture.
+                  Core fundamentals of data structures, web development, software engineering, OS architecture, and database systems.
                 </p>
               </div>
             </div>
@@ -473,17 +530,18 @@
                 <h3>SSLC Secondary Education</h3>
                 <p class="institution">Government Higher Secondary School, Thovalai</p>
                 <p class="desc">
-                  Foundational academic achievement with high honors in mathematics and sciences.
+                  Completed secondary education with top honors in Mathematics and Computer Science basics.
                 </p>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- Experience & Milestones Column -->
         <div class="education-column">
           <div class="column-header">
             <i class="bx bxs-briefcase-alt-2"></i>
-            <h3 class="title">Experience & Milestones</h3>
+            <h3 class="title">Experience &amp; Achievements</h3>
           </div>
           <div class="education-box">
             <div class="education-content">
@@ -491,10 +549,10 @@
                 <div class="year">
                   <i class="bx bxs-calendar"></i> 2023 - Present
                 </div>
-                <h3>Frontend Developer & Freelancer</h3>
-                <p class="institution">Self-Employed / Client Solutions</p>
+                <h3>Frontend Developer &amp; Freelance Consultant</h3>
+                <p class="institution">Independent Contractor</p>
                 <p class="desc">
-                  Developing client websites with modern responsive design, optimizing page loads, and building bespoke interfaces with React and JavaScript.
+                  Delivering high-performance responsive web applications, component libraries, and landing pages for clients using React &amp; modern JS.
                 </p>
               </div>
             </div>
@@ -504,10 +562,10 @@
                 <div class="year">
                   <i class="bx bxs-calendar"></i> 2022 - 2023
                 </div>
-                <h3>Technical Trainee & Web Enthusiast</h3>
+                <h3>Frontend Engineering Trainee</h3>
                 <p class="institution">Tech Skill Labs</p>
                 <p class="desc">
-                  Constructed 10+ frontend repositories, masterclasses in modern ES6+, CSS Grid/Flexbox architectures, and UI/UX design systems.
+                  Built over 10+ web repositories, mastering semantic HTML5, modern SCSS architectures, React hooks, and API integration.
                 </p>
               </div>
             </div>
@@ -517,10 +575,10 @@
                 <div class="year">
                   <i class="bx bxs-calendar"></i> 2021 - 2022
                 </div>
-                <h3>Academic Project Lead</h3>
+                <h3>Capstone Project Lead</h3>
                 <p class="institution">Govt Polytechnic College</p>
                 <p class="desc">
-                  Led student developer group in building capstone software project with documentation, presentation, and functional web prototype.
+                  Spearheaded a 4-member student developer team to engineer a complete academic project prototype and presentation.
                 </p>
               </div>
             </div>
@@ -529,11 +587,11 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Direct Contact Section -->
     <section class="contact" id="contact">
       <div class="section-header">
-        <span class="section-tag">Direct Communication</span>
-        <h2 class="heading">Let's Work <span class="gradient-text">Together</span></h2>
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="heading">Let's Build <span class="gradient-text">Together</span></h2>
       </div>
 
       <div class="contact-wrapper">
@@ -541,32 +599,32 @@
           <div class="c-card card-whatsapp">
             <div class="c-icon icon-wa"><i class="bx bxl-whatsapp"></i></div>
             <h4>WhatsApp Direct</h4>
-            <p>Chat directly on WhatsApp</p>
+            <p>Instant chat messaging &amp; fast inquiry responses</p>
             <a href="https://wa.me/917339260108?text=Hi%20Hari,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!" target="_blank" rel="noopener" class="c-btn c-btn-wa">
-              <span>Open WhatsApp</span>
+              <span>Chat on WhatsApp</span>
               <i class="bx bx-right-arrow-alt"></i>
             </a>
           </div>
 
           <div class="c-card card-gmail">
             <div class="c-icon icon-gmail"><i class="bx bxl-gmail"></i></div>
-            <h4>Gmail Direct</h4>
-            <p>Send an email via Gmail</p>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=harisujan04@gmail.com&su=Portfolio%20Inquiry" target="_blank" rel="noopener" class="c-btn c-btn-gmail">
-              <span>Open Gmail</span>
+            <h4>Email Inquiry</h4>
+            <p>Send a direct message to harisujan04@gmail.com</p>
+            <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=harisujan04@gmail.com&amp;su=Portfolio%20Inquiry" target="_blank" rel="noopener" class="c-btn c-btn-gmail">
+              <span>Compose Email</span>
               <i class="bx bx-right-arrow-alt"></i>
             </a>
           </div>
 
           <div class="c-card">
             <div class="c-icon"><i class="bx bx-map"></i></div>
-            <h4>Location</h4>
+            <h4>Location &amp; Mobile</h4>
             <p>Tirunelveli, Tamil Nadu, India</p>
             <span class="c-sub">+91 7339260108</span>
           </div>
         </div>
 
-        <form class="contact-form" id="contact-form">
+        <form class="contact-form" id="contact-form" novalidate>
           <div class="form-row">
             <div class="input-field">
               <label for="name">Your Name *</label>
@@ -596,21 +654,21 @@
               <label for="subject">Subject *</label>
               <div class="input-wrap">
                 <i class="bx bx-tag input-icon"></i>
-                <input type="text" id="subject" placeholder="Project Inquiry / Job Offer" required />
+                <input type="text" id="subject" placeholder="Project Inquiry / Hiring" required />
               </div>
             </div>
           </div>
 
           <div class="input-field textarea-field">
-            <label for="message">Message *</label>
+            <label for="message">Message Details *</label>
             <div class="input-wrap">
               <i class="bx bx-message-square-detail input-icon textarea-icon"></i>
-              <textarea id="message" rows="5" placeholder="Tell me about your project or inquiry..." required></textarea>
+              <textarea id="message" rows="5" placeholder="Share project scope, details, or job opportunity..." required></textarea>
             </div>
           </div>
 
           <div class="form-submit-options">
-            <span class="submit-help-text">Click to send form details directly via:</span>
+            <span class="submit-help-text">Select your preferred platform to dispatch your inquiry:</span>
             <div class="form-action-btns">
               <button type="button" class="btn btn-whatsapp-action" id="btn-send-whatsapp">
                 <i class="bx bxl-whatsapp"></i>
@@ -627,32 +685,45 @@
       </div>
     </section>
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer class="footer">
-      <div class="footer-brand">
-        <a href="#home" class="logo">
-          <span class="logo-accent"><</span>Hari<span class="logo-accent">/></span>
-        </a>
-        <p>Building high-performing, beautiful web experiences.</p>
-      </div>
+      <div class="footer-container">
+        <div class="footer-brand">
+          <a href="#home" class="logo">
+            <span class="logo-text">Hari</span>
+          </a>
+          <p>Designing and engineering pixel-perfect modern web experiences.</p>
+        </div>
 
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#journey">Journey</a>
+          <a href="#contact">Contact</a>
+        </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2025 Hari Sujan. Crafted with precision & code.</p>
+        <p>&copy; <span id="current-year">2025</span> Hari Sujan. Crafted with precision &amp; code.</p>
         <div class="footer-iconTop">
-          <a href="#home" aria-label="Back to top"><i class="bx bx-up-arrow-alt"></i></a>
+          <a href="#home" aria-label="Back to top of page"><i class="bx bx-up-arrow-alt"></i></a>
         </div>
       </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="./js/main.js"></script>
+    <!-- Interactive Project Details Modal -->
+    <div class="modal-backdrop" id="project-modal" aria-hidden="true">
+      <div class="modal-dialog">
+        <button class="modal-close" id="modal-close" aria-label="Close project modal">&times;</button>
+        <div class="modal-body" id="modal-content">
+          <!-- Dynamic Content Injected via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Bundle -->
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
