@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
       navbar.classList.toggle('active');
     });
 
-    // Close menu when clicking any nav link
     navLinks.forEach((link) => {
       link.addEventListener('click', () => {
         menuIcon.classList.remove('bx-x');
@@ -30,12 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', () => {
     const scrollPos = window.scrollY;
 
-    // Header sticky styling
     if (header) {
       header.classList.toggle('sticky', scrollPos > 80);
     }
 
-    // Scroll active link detection
     sections.forEach((sec) => {
       const top = sec.offsetTop - 150;
       const height = sec.offsetHeight;
@@ -95,42 +92,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
   typeEffect();
 
-  // 4. Contact Form Handling
-  const contactForm = document.getElementById('contact-form');
+  // 4. Contact Form WhatsApp and Gmail Handler
+  const btnSendWhatsApp = document.getElementById('btn-send-whatsapp');
+  const btnSendGmail = document.getElementById('btn-send-gmail');
   const feedback = document.getElementById('form-feedback');
-  const submitBtn = document.getElementById('submit-btn');
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+  function getFormData() {
+    const name = document.getElementById('name')?.value.trim();
+    const email = document.getElementById('email')?.value.trim();
+    const phone = document.getElementById('phone')?.value.trim() || 'N/A';
+    const subject = document.getElementById('subject')?.value.trim();
+    const message = document.getElementById('message')?.value.trim();
 
-      const nameVal = document.getElementById('name')?.value || 'Friend';
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = `<span>Sending...</span> <i class="bx bx-loader-alt bx-spin"></i>`;
+    if (!name || !email || !subject || !message) {
+      if (feedback) {
+        feedback.textContent = 'Please fill out all required fields (*)';
+        feedback.className = 'form-feedback error';
       }
+      return null;
+    }
 
-      // Simulate sending inquiry
-      setTimeout(() => {
-        if (feedback) {
-          feedback.textContent = `Thank you, ${nameVal}! Your message has been sent successfully.`;
-          feedback.className = 'form-feedback success';
-        }
+    if (feedback) {
+      feedback.style.display = 'none';
+    }
 
-        contactForm.reset();
+    return { name, email, phone, subject, message };
+  }
 
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = `<span>Sent!</span> <i class="bx bx-check"></i>`;
+  // Send via WhatsApp
+  if (btnSendWhatsApp) {
+    btnSendWhatsApp.addEventListener('click', () => {
+      const data = getFormData();
+      if (!data) return;
 
-          setTimeout(() => {
-            submitBtn.innerHTML = `<span>Send Message</span> <i class="bx bx-send"></i>`;
-            if (feedback) {
-              feedback.style.display = 'none';
-            }
-          }, 4500);
-        }
-      }, 900);
+      const waMessage = `*New Portfolio Message*\n\n` +
+        `*Name:* ${data.name}\n` +
+        `*Email:* ${data.email}\n` +
+        `*Phone:* ${data.phone}\n` +
+        `*Subject:* ${data.subject}\n\n` +
+        `*Message:*\n${data.message}`;
+
+      const waUrl = `https://wa.me/917339260108?text=${encodeURIComponent(waMessage)}`;
+      window.open(waUrl, '_blank');
+
+      if (feedback) {
+        feedback.textContent = 'Opening WhatsApp with your message...';
+        feedback.className = 'form-feedback success';
+      }
+    });
+  }
+
+  // Send via Gmail
+  if (btnSendGmail) {
+    btnSendGmail.addEventListener('click', () => {
+      const data = getFormData();
+      if (!data) return;
+
+      const emailSubject = `[Portfolio Contact] ${data.subject}`;
+      const emailBody = `Hi Hari,\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\n\nMessage:\n${data.message}`;
+
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=harisujan04@gmail.com&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      window.open(gmailUrl, '_blank');
+
+      if (feedback) {
+        feedback.textContent = 'Opening Gmail compose tab with your inquiry...';
+        feedback.className = 'form-feedback success';
+      }
     });
   }
 });

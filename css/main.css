@@ -17,10 +17,9 @@
   outline: none;
   scroll-behavior: smooth;
   font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
-  caret-color: transparent; /* Prevents the blinking '|' caret when clicking text */
+  caret-color: transparent;
 }
 
-/* Allow text cursor and blinking caret ONLY inside actual input fields */
 input, textarea {
   caret-color: var(--primary);
 }
@@ -41,6 +40,8 @@ input, textarea {
   --success: #10b981;
   --warning: #f59e0b;
   --error: #ef4444;
+  --whatsapp: #25D366;
+  --gmail: #EA4335;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
@@ -133,15 +134,12 @@ body {
   color: var(--text);
 }
 
-/* Custom Text Highlight */
 ::selection {
   background: rgba(158, 127, 255, 0.35);
   color: #ffffff;
 }
 
-/* ==========================================================================
-   Header & Navigation
-   ========================================================================== */
+/* Header & Navigation */
 header {
   position: fixed;
   top: 0;
@@ -238,9 +236,7 @@ header.sticky {
   display: none;
 }
 
-/* ==========================================================================
-   Buttons
-   ========================================================================== */
+/* Buttons */
 .btn-box {
   display: flex;
   align-items: center;
@@ -309,9 +305,34 @@ header.sticky {
   transform: translateY(-3px);
 }
 
-/* ==========================================================================
-   Sections Common
-   ========================================================================== */
+/* WhatsApp & Gmail Action Buttons */
+.btn-whatsapp-action {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+  flex: 1;
+}
+
+.btn-whatsapp-action:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
+}
+
+.btn-gmail-action {
+  background: linear-gradient(135deg, #EA4335 0%, #C5221F 100%);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 6px 20px rgba(234, 67, 53, 0.3);
+  flex: 1;
+}
+
+.btn-gmail-action:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(234, 67, 53, 0.45);
+}
+
+/* Sections Common */
 section {
   position: relative;
   z-index: 1;
@@ -319,9 +340,7 @@ section {
   width: 100%;
 }
 
-/* ==========================================================================
-   Hero Section
-   ========================================================================== */
+/* Hero Section */
 .home {
   min-height: 100vh;
   display: flex;
@@ -383,7 +402,6 @@ section {
   margin-bottom: 2rem;
 }
 
-/* Clean text with no vertical bar (|) */
 .typewriter-text {
   color: var(--secondary);
   border: none;
@@ -576,9 +594,7 @@ section {
   font-weight: 500;
 }
 
-/* ==========================================================================
-   About Section
-   ========================================================================== */
+/* About Section */
 .about {
   background: #1b1b1b;
   border-top: 1px solid var(--border);
@@ -677,7 +693,7 @@ section {
   display: flex;
   align-items: center;
   gap: 1.4rem;
-  background: rgba(23, 23, 0.6);
+  background: rgba(23, 23, 23, 0.6);
   border: 1px solid var(--border);
   padding: 1.4rem 1.6rem;
   border-radius: var(--radius-md);
@@ -725,9 +741,7 @@ section {
   gap: 1.6rem;
 }
 
-/* ==========================================================================
-   Skills Section
-   ========================================================================== */
+/* Skills Section */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -890,9 +904,7 @@ section {
   transform: translateY(-2px);
 }
 
-/* ==========================================================================
-   Projects Section
-   ========================================================================== */
+/* Projects Section */
 .projects {
   background: #191919;
   border-top: 1px solid var(--border);
@@ -1017,9 +1029,7 @@ section {
   line-height: 1.6;
 }
 
-/* ==========================================================================
-   Education & Journey Section
-   ========================================================================== */
+/* Education Section */
 .education-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1118,9 +1128,7 @@ section {
   line-height: 1.6;
 }
 
-/* ==========================================================================
-   Contact Section
-   ========================================================================== */
+/* Contact Section */
 .contact {
   background: #191919;
   border-top: 1px solid var(--border);
@@ -1144,11 +1152,30 @@ section {
   border-radius: var(--radius-md);
   padding: 2.5rem;
   transition: var(--transition);
+
 }
 
 .c-card:hover {
   border-color: var(--secondary);
   transform: translateY(-3px);
+}
+
+.card-whatsapp {
+  border-color: rgba(37, 211, 102, 0.3);
+}
+
+.card-whatsapp:hover {
+  border-color: var(--whatsapp);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
+}
+
+.card-gmail {
+  border-color: rgba(234, 67, 53, 0.3);
+}
+
+.card-gmail:hover {
+  border-color: var(--gmail);
+  box-shadow: 0 10px 25px rgba(234, 67, 53, 0.2);
 }
 
 .c-icon {
@@ -1164,6 +1191,16 @@ section {
   margin-bottom: 1.4rem;
 }
 
+.icon-wa {
+  background: rgba(37, 211, 102, 0.15);
+  color: var(--whatsapp);
+}
+
+.icon-gmail {
+  background: rgba(234, 67, 53, 0.15);
+  color: var(--gmail);
+}
+
 .c-card h4 {
   font-size: 1.6rem;
   font-weight: 700;
@@ -1171,15 +1208,49 @@ section {
   margin-bottom: 0.6rem;
 }
 
-.c-card a,
 .c-card p {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.c-sub {
+  font-size: 1.4rem;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.c-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius-full);
+  font-size: 1.4rem;
+  font-weight: 600;
   transition: var(--transition);
 }
 
-.c-card a:hover {
-  color: var(--secondary);
+.c-btn-wa {
+  background: rgba(37, 211, 102, 0.12);
+  color: var(--whatsapp);
+  border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+.c-btn-wa:hover {
+  background: var(--whatsapp);
+  color: #ffffff;
+}
+
+.c-btn-gmail {
+  background: rgba(234, 67, 53, 0.12);
+  color: var(--gmail);
+  border: 1px solid rgba(234, 67, 53, 0.3);
+}
+
+.c-btn-gmail:hover {
+  background: var(--gmail);
+  color: #ffffff;
 }
 
 /* Contact Form */
@@ -1255,16 +1326,28 @@ section {
   margin-bottom: 2.5rem;
 }
 
-.form-submit-row {
+.form-submit-options {
   display: flex;
-  align-items: center;
-  gap: 2rem;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.submit-help-text {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.form-action-btns {
+  display: flex;
+  gap: 1.6rem;
 }
 
 .form-feedback {
   font-size: 1.4rem;
   font-weight: 500;
   display: none;
+  margin-top: 1rem;
 }
 
 .form-feedback.success {
@@ -1277,9 +1360,7 @@ section {
   color: var(--error);
 }
 
-/* ==========================================================================
-   Footer Section
-   ========================================================================== */
+/* Footer Section */
 .footer {
   background: #141414;
   border-top: 1px solid var(--border);
@@ -1349,9 +1430,7 @@ section {
   transform: translateY(-3px);
 }
 
-/* ==========================================================================
-   Responsive Breakpoints
-   ========================================================================== */
+/* Responsive Breakpoints */
 @media (max-width: 1200px) {
   html { font-size: 56%; }
   section { padding: 11rem 6% 6rem; }
@@ -1446,6 +1525,10 @@ section {
 
   .form-row {
     grid-template-columns: 1fr;
+  }
+
+  .form-action-btns {
+    flex-direction: column;
   }
 
   .home-content h1 {
